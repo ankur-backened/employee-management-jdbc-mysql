@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args)throws ClassNotFoundException , SQLException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("Drivers Loaded Successfully!!! ");
         } catch (ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
@@ -13,7 +12,6 @@ public class Main {
 
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_databases", "root", "thug");
-            System.out.println("\nConnection Established Successfully!!! ");
             Scanner sc = new Scanner(System.in);
             while (true) {
                 System.out.println();
@@ -96,7 +94,6 @@ public class Main {
         //display employees
         private static void viewEmployees (Connection con) throws SQLException {
             PreparedStatement ps = con.prepareStatement("select *from employee ;");
-         //   ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 int eId = rs.getInt("em_id");
